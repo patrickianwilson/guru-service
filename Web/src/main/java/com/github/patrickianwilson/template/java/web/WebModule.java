@@ -1,7 +1,9 @@
 package com.github.patrickianwilson.template.java.web;
 
-import org.jboss.resteasy.plugins.server.servlet.FilterDispatcher;
+import com.google.appengine.labs.repackaged.com.google.common.collect.ImmutableMap;
 import com.google.inject.servlet.ServletModule;
+import com.sun.jersey.api.core.ResourceConfig;
+import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
 /**
  * Created by pwilson on 3/7/16.
@@ -12,9 +14,6 @@ public class WebModule extends ServletModule {
     protected void configureServlets() {
         super.configureServlets();
 
-        //boot up the resteasy dispatcher.
-        bind(FilterDispatcher.class).asEagerSingleton();
-        filter("/*").through(FilterDispatcher.class);
-
+        serve("/*").with(GuiceContainer.class, ImmutableMap.of(ResourceConfig.FEATURE_DISABLE_WADL, "true"));
     }
 }

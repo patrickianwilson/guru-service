@@ -1,0 +1,16 @@
+{
+  "oauth2": {
+    "type": "oauth2",
+    "scopes": [
+      { "scope" : "scope:patrickianwilson.github.com/guru/network/create", "create a network" : "TODO" },
+    ],
+    "grantTypes": {
+      "implicit": {
+        "loginEndpoint": {
+              "url": "http://login/url"
+        },
+        "tokenName": "access_token"
+      }
+    }
+  }
+}

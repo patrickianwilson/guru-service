@@ -1,4 +1,12 @@
-apply from: "$rootProject.projectDir/config/gradle/includes/java-conventions.gradle"
-apply from: "$rootProject.projectDir/config/gradle/includes/java-web-conventions.gradle"
-apply from: "$rootProject.projectDir/config/gradle/includes/guice-conventions.gradle"
-apply from: "$rootProject.projectDir/config/gradle/includes/resteasy-conventions.gradle"
+buildscript {
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.google.appengine:gradle-appengine-plugin:1.9.30'
+    }
+}
+
+apply from: "$rootProject.projectDir/config/gradle/includes/java-appengine-conventions.gradle"

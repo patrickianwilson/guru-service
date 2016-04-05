@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <!-- please don't change the application name -->
+    <!--<application>smart-metricsproxy-dev</application>-->
+    <!--<application>development</application>-->
+    <application>smart-content-v2-dev</application>
+    <version>version-0-0-1</version>
+    <threadsafe>true</threadsafe>
+    <!--<warmup-requests-enabled>true</warmup-requests-enabled>-->
+
+    <automatic-scaling>
+        <min-idle-instances>1</min-idle-instances>
+        <!-- 'automatic' is the default value. -->
+        <max-idle-instances>automatic</max-idle-instances>
+        <!-- 'automatic' is the default value. -->
+        <min-pending-latency>automatic</min-pending-latency>
+        <max-pending-latency>automatic</max-pending-latency>
+    </automatic-scaling>
+
+    <!--<automatic-scaling>-->
+    <!--<min-num-instances>1</min-num-instances>-->
+    <!--<max-num-instances>5</max-num-instances>-->
+    <!--<cool-down-period-sec>60</cool-down-period-sec>-->
+    <!--<cpu-utilization>-->
+    <!--<target-utilization>0.5</target-utilization>-->
+    <!--</cpu-utilization>-->
+    <!--</automatic-scaling>-->
+    <admin-console>
+        <page name="Appstats" url="/appstats/stats"/>
+    </admin-console>
+    <!--<vm>true</vm>-->
+
+
+</appengine-web-app>

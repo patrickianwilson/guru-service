@@ -9,7 +9,6 @@ version = '1.0.1-SNAPSHOT'
 group = "com.github.patrickianwilson"
 
 dependencies {
-    compile "org.mortbay.jetty:jetty:6.1.22"
     compile 'cglib:cglib:2.2.2'
     compile 'org.slf4j:slf4j-api:1.6.6'
     compile 'com.google.guava:guava:16.0.1';
@@ -69,7 +68,7 @@ checkstyleTest {
 }
 
 configurations {
-    all*.exclude group: "javax.servlet", module: "servlet-api"
+//    all*.exclude group: "javax.servlet", module: "servlet-api"
     all*.exclude group: "junit", module: "junit-dep"
 }
 
