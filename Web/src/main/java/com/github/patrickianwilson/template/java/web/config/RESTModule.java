@@ -1,9 +1,10 @@
 package com.github.patrickianwilson.template.java.web.config;
 
-import com.github.patrickianwilson.template.java.web.UserService;
 import com.github.patrickianwilson.template.java.web.config.writers.InputStreamWriter;
 import com.github.patrickianwilson.template.java.web.config.writers.JsonStreamReaderWriter;
-import com.github.patrickianwilson.template.java.web.controllers.UserResourceController;
+import com.github.patrickianwilson.template.java.web.controllers.ApplicationController;
+import com.github.patrickianwilson.template.java.web.controllers.EnvironmentController;
+import com.github.patrickianwilson.template.java.web.controllers.VersionController;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.memcache.MemcacheService;
@@ -13,8 +14,6 @@ import com.google.appengine.api.urlfetch.URLFetchServiceFactory;
 import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 import com.google.appengine.tools.cloudstorage.RetryParams;
-import com.google.common.collect.ImmutableMap;
-import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.guice.JerseyServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
@@ -54,7 +53,9 @@ public class RESTModule extends JerseyServletModule {
         bind(GcsService.class).toInstance(GcsServiceFactory.createGcsService(RetryParams.getDefaultInstance()));
 
         //bind controllers
-        bind(UserResourceController.class);
+        bind(ApplicationController.class);
+        bind(EnvironmentController.class);
+        bind(VersionController.class);
 
         //helps
         filter("/*").through(CorsFilter.class);
