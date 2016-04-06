@@ -5,9 +5,24 @@ package com.github.patrickianwilson.template.java.web.controllers.models;
  */
 public class AppVersion {
 
+    /**
+     * The identifier for this version.  Unique within an application.
+     * @requiredParam
+     */
     private String id;
-    private String internalId;
+
+    /**
+     * A pointer to an artifact that has been uploaded to a CDN.
+     * @requiredParam
+     */
     private String artifactLocation;
+
+
+    /**
+     * A reference to the environment configuration to use with this deployment.  This is required for ]
+     * immutable and repeatable deployments.
+     * If not specified this will default to the latest environment.
+     */
     private String environmentId;
 
     public String getId() {
@@ -16,14 +31,6 @@ public class AppVersion {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getInternalId() {
-        return internalId;
-    }
-
-    public void setInternalId(String internalId) {
-        this.internalId = internalId;
     }
 
     public String getArtifactLocation() {

@@ -5,9 +5,20 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-
+    <filter>
+        <filter-name>default</filter-name>
+        <filter-class>com.github.patrickianwilson.template.java.web.config.DefaultFilter</filter-class>
+        <init-param>
+            <param-name>appengine.application.admin.handler.pattern</param-name>
+            <param-value>/_ah/(warmup|start|mail|channel/connected|channel/disconnected)(/.*)?</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>default</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <listener>
-        <listener-class>com.github.patrickianwilson.template.java.web.ApplicationContextListener</listener-class>
+        <listener-class>com.github.patrickianwilson.template.java.web.config.ApplicationContextListener</listener-class>
     </listener>
 
 </web-app>

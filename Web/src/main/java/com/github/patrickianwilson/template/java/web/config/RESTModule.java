@@ -3,6 +3,7 @@ package com.github.patrickianwilson.template.java.web.config;
 import com.github.patrickianwilson.template.java.web.config.writers.InputStreamWriter;
 import com.github.patrickianwilson.template.java.web.config.writers.JsonStreamReaderWriter;
 import com.github.patrickianwilson.template.java.web.controllers.ApplicationController;
+import com.github.patrickianwilson.template.java.web.controllers.DeploymentController;
 import com.github.patrickianwilson.template.java.web.controllers.EnvironmentController;
 import com.github.patrickianwilson.template.java.web.controllers.VersionController;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -56,6 +57,7 @@ public class RESTModule extends JerseyServletModule {
         bind(ApplicationController.class);
         bind(EnvironmentController.class);
         bind(VersionController.class);
+        bind(DeploymentController.class);
 
         //helps
         filter("/*").through(CorsFilter.class);

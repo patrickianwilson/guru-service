@@ -8,7 +8,7 @@ import com.google.inject.servlet.GuiceServletContextListener;
 /**
  * Created by pwilson on 2/18/16.
  */
-public class ContentServiceContextListener extends GuiceServletContextListener {
+public class ApplicationContextListener extends GuiceServletContextListener {
 
     @Override
     protected Injector getInjector() {

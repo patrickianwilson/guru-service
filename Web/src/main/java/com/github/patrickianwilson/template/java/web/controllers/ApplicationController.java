@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -35,6 +36,7 @@ public class ApplicationController {
     }
 
     @POST
+    @Consumes("application/json")
     public Response createApplication(Application app) throws URISyntaxException {
         return Response.created(new URI("/application/")).build();
     }

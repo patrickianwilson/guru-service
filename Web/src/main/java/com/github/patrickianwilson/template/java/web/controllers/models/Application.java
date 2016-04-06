@@ -1,10 +1,19 @@
 package com.github.patrickianwilson.template.java.web.controllers.models;
 
 /**
- * Created by pwilson on 4/5/16.
+ * An Application descriptor json object.
  */
 public class Application {
+    /**
+     *  The unique id of this application
+     *  @requiredParam id
+     */
     private String id;
+
+    /**
+     * A human readable name for the application.
+     * @requiredParam name
+     */
     private String name;
 
     public String getId() {

@@ -9,10 +9,14 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.Set;
 import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.MessageBodyWriter;
+import javax.ws.rs.ext.Provider;
 import com.google.common.base.Charsets;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
@@ -21,6 +25,10 @@ import com.google.gson.Gson;
 /**
  * Created by pwilson on 4/4/16.
  */
+@Provider
+@Singleton
+@Produces({ MediaType.APPLICATION_JSON, "text/json" })
+@Consumes({ MediaType.APPLICATION_JSON, "text/json" })
 public class JsonStreamReaderWriter implements MessageBodyWriter<Object>, MessageBodyReader<Object> {
 
     /**
